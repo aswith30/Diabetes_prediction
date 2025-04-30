@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>Prediction Result</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('https://img.freepik.com/free-photo/3d-rendering-hexagonal-texture-background_23-2150796417.jpg?semt=ais_hybrid&w=740') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* Container Styles */
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Contact Box Styles */
+        .contact-box {
+            display: flex;
+            width: 600px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.9); /* White with slight transparency */
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        /* Left Side (Image or Background) */
+        .left {
+            width: 110%;
+            background: url('https://www.shutterstock.com/shutterstock/videos/1106238701/thumb/1.jpg?ip=x480') no-repeat center center;
+            background-size: fixed;
+        }
+
+        /* Right Side (Text and Button) */
+        .right {
+            width: 50%;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Header Styles */
+        h1 {
+            font-size: 36px;
+            color: #3e3e3e;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 30px;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        /* Button Styles */
+        .btn {
+            padding: 15px 30px;
+            background-color: #ff64a2; /* Pink Color */
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ff4081; /* Darker Pink on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="contact-box">
+            <div class="left"></div>
+            <div class="right">
+                <h1>
+                    {% if result == "Positive" %}
+                        <b>You have diabetes.</b>
+                    {% else %}
+                        <b>You do not have diabetes.</b>
+                    {% endif %}
+                </h1>
+                
+                <button class="btn" onclick="location.href='{% url 'predict' %}';">
+                    <b>Predict Again</b>
+                </button>
+                
+                <div style="padding-bottom: 0px;"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

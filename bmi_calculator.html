@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Calculator</title>
+    <style>
+        /* Body and general layout */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://png.pngtree.com/background/20240520/original/pngtree-on-a-wall-background-healthcare-idea-with-body-mass-index-and-picture-image_9027691.jpg'); /* Example background image */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Header styling */
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color:rgb(29, 34, 29); /* Green color */
+        }
+
+        /* Form inputs */
+        input {
+            padding: 12px;
+            margin: 15px;
+            width: 250px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background-color: rgba(236, 240, 241, 0.92);
+            color: #333;
+        }
+
+        input:focus {
+            outline: none;
+            border: 2px solid #3f9d35; /* Highlight border when focused */
+        }
+
+        /* Submit button */
+        button {
+            padding: 12px 20px;
+            margin-top: 10px;
+            font-size: 18px;
+            background-color: #3f9d35; /* Green button */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #338f2b; /* Darker green on hover */
+        }
+
+        /* Result section */
+        #bmiResult {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #ffeb3b; /* Yellow-green result text */
+        }
+
+        /* Back button */
+        .back-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 30px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background-color: #007BB5;
+        }
+
+        /* Responsiveness for smaller screens */
+        @media (max-width: 600px) {
+            input, button {
+                width: 80%;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>BMI Calculator</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="number" id="height" name="height" placeholder="Height in cm" required>
+        <br>
+        <input type="number" id="weight" name="weight" placeholder="Weight in kg" required>
+        <br>
+        <button type="submit">Calculate BMI</button>
+    </form>
+
+    {% if bmi %}
+        <div id="bmiResult">
+            <p>Your BMI is: {{ bmi }}</p>
+        </div>
+        <button class="back-btn" onclick="window.location.href = '/predict/bmi/';">Back to BMI Calculator</button>
+    {% endif %}
+
+</body>
+</html>

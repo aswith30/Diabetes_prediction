@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI Result</title>
+    <style>
+        /* Body and general layout */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.lifewire.com/thmb/CLI14Ku63Uujk5VlROmhN67G-3I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/wallhaven-5919d60a5f9b58f4c04e8b26.png'); /* Example background image */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+        }
+
+        /* Header styling */
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color:rgb(232, 60, 77); /* Green color */
+        }
+
+        /* Result text styling */
+        .result {
+            font-size: 1.8em;
+            color:rgb(23, 48, 213); /* Yellow-green color */
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.7); /* Slight transparency */
+            border-radius: 8px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Back button styling */
+        .back-btn {
+            padding: 12px 25px;
+            font-size: 18px;
+            margin-top: 30px;
+            background-color: #3f9d35;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 60%;
+            max-width: 350px;
+        }
+
+        .back-btn:hover {
+            background-color: #338f2b; /* Darker green on hover */
+        }
+
+        /* Responsiveness for smaller screens */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .result {
+                font-size: 1.5em;
+                width: 90%;
+                padding: 10px;
+            }
+
+            .back-btn {
+                width: 80%;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Your BMI Result</h1>
+
+    <div class="result">
+        <p>Your BMI is: {{ bmi }}</p>
+    </div>
+
+    <button class="back-btn" onclick="window.location.href = '/predict/';">Diabetes Prediction</button>
+
+</body>
+</html>
